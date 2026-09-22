@@ -1,0 +1,4 @@
+node_modules/
+dist/
+fixtures/real-run/junit.xml
+*.log
