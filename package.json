@@ -1,0 +1,38 @@
+{
+  "name": "test-failure-locator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "加载真实测试运行结果（JUnit XML），展示层级、失败详情并定位源码位置",
+  "scripts": {
+    "dev": "tsx server/dev-server.ts",
+    "start": "tsx server/server.ts",
+    "build": "tsc -p tsconfig.json && vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:real": "vitest run --config fixtures/real-run/vitest.real.config.ts; npm run test:e2e",
+    "test:e2e": "tsx scripts/verify-real-run.ts",
+    "test:browser": "tsx scripts/verify-browser.ts",
+    "verify": "npm run typecheck && npm run test && npm run build && npm run test:real"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^22.20.4",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^25.0.1",
+    "playwright": "1.48",
+    "tsx": "^4.23.15",
+    "typescript": "5.6",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  }
+}
